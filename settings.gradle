@@ -1,0 +1,4 @@
+rootProject.name = "Ravn-Challenge-V2-Diego-Sanchez"
+include ':app'
+include ':core'
+include ':data'
