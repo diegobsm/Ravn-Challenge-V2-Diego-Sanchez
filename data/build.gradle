@@ -2,11 +2,19 @@ plugins {
     id 'java-library'
     id 'kotlin'
     id 'kotlin-kapt'
+    id("com.apollographql.apollo").version("2.5.2")
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+apollo {
+    // instruct the compiler to generate Kotlin models
+    schemaFile = file("data/src/main/java/com/ravn/data/network/remote/graphql/schema.json")
+    rootPackageName = "com.ravn.challenge"
+    generateKotlinModels.set(true)
 }
 
 dependencies {
@@ -23,6 +31,10 @@ dependencies {
     // Coroutines:
     implementation rootProject.ext.coroutines.core
     implementation rootProject.ext.coroutines.android
+
+    implementation rootProject.ext.apollo.apollo_runtime
+    // Coroutines extensions for easier asynchronicity handling
+    implementation rootProject.ext.apollo.apollo_coroutine
 
     // Room:
     implementation rootProject.ext.room.room_runtime
