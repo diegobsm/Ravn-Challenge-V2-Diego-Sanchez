@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'kotlin-kapt'
 }
 
 java {
@@ -9,5 +10,38 @@ java {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Libs:
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Module Dependencies:
+    implementation project(":core")
+
+    // Common:
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.core_ktlx
+
+    // Coroutines:
+    implementation rootProject.ext.coroutines.core
+    implementation rootProject.ext.coroutines.android
+
+    // Room:
+    implementation rootProject.ext.room.room_runtime
+    kapt rootProject.ext.room.room_compiler
+    implementation rootProject.ext.room.room_ktx
+
+    // Di:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_scope
+
+    // Unit Testing:
+    testImplementation rootProject.ext.testCommon.junit
+    testImplementation rootProject.ext.testCommon.mockito_core
+    testImplementation rootProject.ext.testCommon.mockito_kotlin
+    testImplementation rootProject.ext.testCommon.mockito_inline
+    testImplementation rootProject.ext.testCommon.core_testing
+    testImplementation rootProject.ext.testCommon.test_coroutines
+    testImplementation rootProject.ext.testCommon.koin_test
+    testImplementation rootProject.ext.testCommon.test_core
+    testImplementation rootProject.ext.testCommon.robolectric
+    testImplementation rootProject.ext.testCommon.mockwebserver
 }

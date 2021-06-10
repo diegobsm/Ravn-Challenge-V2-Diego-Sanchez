@@ -9,5 +9,20 @@ java {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Libs:
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Common:
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.core_ktlx
+
+    // Di:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_scope
+
+    // Unit Testing:
+    testImplementation rootProject.ext.testCommon.junit
+    testImplementation rootProject.ext.testCommon.robolectric
+    testImplementation rootProject.ext.testCommon.koin_test
+    testImplementation rootProject.ext.testCommon.test_core
 }

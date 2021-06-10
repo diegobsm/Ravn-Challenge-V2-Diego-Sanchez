@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -34,12 +35,57 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Libs:
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Module Dependencies:
+    implementation project(":core")
+    implementation project(":data")
+
+    // Common:
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.core_ktlx
+    implementation rootProject.ext.google.material
+
+    // Android:
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.constraintlayout
+
+    // Di:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_viewmodel
+    implementation rootProject.ext.koin.koin_scope
+
+    // Coroutines:
+    implementation rootProject.ext.coroutines.core
+    implementation rootProject.ext.coroutines.android
+
+    // Arch components:
+    kapt rootProject.ext.arch_components.lifecycle_compiler
+    implementation rootProject.ext.arch_components.lifecycle_extensions
+    implementation rootProject.ext.arch_components.lifecycle_viewmodel_ktx
+    implementation rootProject.ext.arch_components.lifecycle_runtime_ktx
+    implementation rootProject.ext.arch_components.lifecycle_livedata_ktx
+
+    // Navigation:
+    implementation rootProject.ext.arch_components.navigation_fragment
+    implementation rootProject.ext.arch_components.navigation_ui
+    testImplementation rootProject.ext.arch_components.navigation_test
+
+    // Unit Testing:
+    testImplementation rootProject.ext.testCommon.fragment_test
+    testImplementation rootProject.ext.testCommon.test_core
+    testImplementation rootProject.ext.testCommon.junit
+    testImplementation rootProject.ext.testCommon.runner
+    testImplementation rootProject.ext.testCommon.junit_ext
+    testImplementation rootProject.ext.testCommon.espresso_core
+    testImplementation rootProject.ext.testCommon.robolectric
+    testImplementation rootProject.ext.testCommon.junit
+    testImplementation rootProject.ext.testCommon.mockito_core
+    testImplementation rootProject.ext.testCommon.mockito_kotlin
+    testImplementation rootProject.ext.testCommon.mockito_inline
+    testImplementation rootProject.ext.testCommon.core_testing
+    testImplementation rootProject.ext.testCommon.koin_test
+    testImplementation rootProject.ext.testCommon.test_coroutines
+    testImplementation rootProject.ext.testCommon.test_navigation
 }
