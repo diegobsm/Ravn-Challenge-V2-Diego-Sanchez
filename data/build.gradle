@@ -12,7 +12,7 @@ java {
 
 apollo {
     // instruct the compiler to generate Kotlin models
-    schemaFile = file("data/src/main/java/com/ravn/data/network/remote/graphql/schema.json")
+    schemaFile = file("data/src/main/java/com/ravn/data/graphql/schema.json")
     rootPackageName = "com.ravn.challenge"
     generateKotlinModels.set(true)
 }
