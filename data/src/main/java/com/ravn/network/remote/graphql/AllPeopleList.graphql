@@ -1,4 +1,4 @@
-query AllPeopleList($pageSize: Int, $allPeopleAfter: String) {
+query AllPeopleList($pageSize: Int!, $allPeopleAfter: String!) {
     allPeople(first: $pageSize, after: $allPeopleAfter) {
         people {
             name

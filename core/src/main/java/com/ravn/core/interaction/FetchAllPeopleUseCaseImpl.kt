@@ -1,10 +1,11 @@
 package com.ravn.core.interaction
 
-import com.ravn.core.model.Person
+import androidx.lifecycle.LiveData
+import com.ravn.core.model.People
 import com.ravn.core.repository.PeopleRepository
-import com.ravn.core.util.Response
+import com.ravn.core.util.Resource
 
 class FetchAllPeopleUseCaseImpl(private val peopleRepository: PeopleRepository) : FetchAllPeopleListUseCase {
-    override suspend fun invoke(nextPageCursor: String, isFirstLoad: Boolean): Response<List<Person>> =
-        peopleRepository.fetchAllPeopleList(nextPageCursor, isFirstLoad)
+    override suspend fun invoke(nextPageCursor: String, isFirstLoad: Boolean): LiveData<Resource<List<People>>> =
+        peopleRepository.fetchAllPeopleList(nextPageCursor = nextPageCursor, isFirstPage = isFirstLoad)
 }

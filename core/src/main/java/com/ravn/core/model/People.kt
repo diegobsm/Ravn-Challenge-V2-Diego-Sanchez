@@ -1,6 +1,6 @@
 package com.ravn.core.model
 
-data class Person(
+data class People(
     val id: String,
     val name: String? = null,
     val eyeColor: String? = null,

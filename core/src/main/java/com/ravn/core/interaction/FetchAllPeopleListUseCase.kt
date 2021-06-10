@@ -1,8 +1,9 @@
 package com.ravn.core.interaction
 
-import com.ravn.core.model.Person
-import com.ravn.core.util.Response
+import androidx.lifecycle.LiveData
+import com.ravn.core.model.People
+import com.ravn.core.util.Resource
 
 interface FetchAllPeopleListUseCase {
-    suspend operator fun invoke(nextPageCursor: String, isFirstLoad: Boolean): Response<List<Person>>
+    suspend operator fun invoke(nextPageCursor: String, isFirstLoad: Boolean): LiveData<Resource<List<People>>>
 }

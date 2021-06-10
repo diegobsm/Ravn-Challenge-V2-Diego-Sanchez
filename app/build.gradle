@@ -62,11 +62,11 @@ dependencies {
     implementation rootProject.ext.coroutines.android
 
     // Arch components:
-    kapt rootProject.ext.arch_components.lifecycle_compiler
-    implementation rootProject.ext.arch_components.lifecycle_extensions
     implementation rootProject.ext.arch_components.lifecycle_viewmodel_ktx
     implementation rootProject.ext.arch_components.lifecycle_runtime_ktx
     implementation rootProject.ext.arch_components.lifecycle_livedata_ktx
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt rootProject.ext.arch_components.lifecycle_common
 
     // Navigation:
     implementation rootProject.ext.arch_components.navigation_fragment

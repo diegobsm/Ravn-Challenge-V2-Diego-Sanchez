@@ -1,8 +1,13 @@
 package com.ravn.core.repository
 
-import com.ravn.core.model.Person
-import com.ravn.core.util.Response
+import androidx.lifecycle.LiveData
+import com.ravn.core.model.People
+import com.ravn.core.util.Resource
 
 interface PeopleRepository {
-    suspend fun fetchAllPeopleList(nextPageCursor: String, isFirstPage: Boolean): Response<List<Person>>
+    suspend fun fetchAllPeopleList(
+        pageSize: Int? = null,
+        nextPageCursor: String,
+        isFirstPage: Boolean
+    ): LiveData<Resource<List<People>>>
 }
