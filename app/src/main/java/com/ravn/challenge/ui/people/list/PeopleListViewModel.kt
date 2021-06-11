@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
 class PeopleListViewModel(private val fetchAllPeopleListUseCase: FetchAllPeopleListUseCase) : ViewModel() {
 
     suspend fun getPeople(): Flow<PagingData<People>> =
-        fetchAllPeopleListUseCase.invoke(true)
+        fetchAllPeopleListUseCase.invoke()
 }

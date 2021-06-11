@@ -5,8 +5,5 @@ import com.ravn.core.model.People
 import kotlinx.coroutines.flow.Flow
 
 interface PeopleRepository {
-    suspend fun fetchAllPeopleList(
-        pageSize: Int? = null,
-        isFirstPage: Boolean
-    ): Flow<PagingData<People>>
+    suspend fun fetchAllPeopleList(pageSize: Int? = null): Flow<PagingData<People>>
 }

@@ -18,8 +18,6 @@ class PeoplePagingSource(
 ) :
     PagingSource<String, People>() {
 
-    var isFirstPage: Boolean = true
-
     override fun getRefreshKey(state: PagingState<String, People>): String? {
         return state.anchorPosition?.let { anchorPosition ->
             // This loads starting from previous page, but since PagingConfig.initialLoadSize spans

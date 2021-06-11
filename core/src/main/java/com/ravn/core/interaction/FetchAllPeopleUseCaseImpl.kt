@@ -6,6 +6,6 @@ import com.ravn.core.repository.PeopleRepository
 import kotlinx.coroutines.flow.Flow
 
 class FetchAllPeopleUseCaseImpl(private val peopleRepository: PeopleRepository) : FetchAllPeopleListUseCase {
-    override suspend fun invoke(isFirstLoad: Boolean): Flow<PagingData<People>> =
-        peopleRepository.fetchAllPeopleList( isFirstPage = isFirstLoad)
+    override suspend fun invoke(): Flow<PagingData<People>> =
+        peopleRepository.fetchAllPeopleList()
 }

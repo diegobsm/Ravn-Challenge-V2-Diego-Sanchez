@@ -5,5 +5,5 @@ import com.ravn.core.model.People
 import kotlinx.coroutines.flow.Flow
 
 interface FetchAllPeopleListUseCase {
-    suspend operator fun invoke(isFirstLoad: Boolean): Flow<PagingData<People>>
+    suspend operator fun invoke(): Flow<PagingData<People>>
 }
