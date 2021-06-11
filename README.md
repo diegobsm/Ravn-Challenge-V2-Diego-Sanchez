@@ -9,7 +9,7 @@ Kotlin app master detail that contain a list and detail to Star War character,
 the app was build using kotlin, GraphAL to get the data from the server, 
 paging3 to paginate the data also the project is divided in three module app, data and core.
 
-[query] (https://www.evernote.com/shard/s430/sh/f20ca845-809f-5511-005a-166ba942f7a6/faad553a40e6c342c4aae090fc87bce2)
+Query: https://www.evernote.com/shard/s430/sh/f20ca845-809f-5511-005a-166ba942f7a6/faad553a40e6c342c4aae090fc87bce2
 
 ## Any assumptions
 
