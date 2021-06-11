@@ -1,5 +1,5 @@
-query AllPeopleList($pageSize: Int!, $allPeopleAfter: String!) {
-    allPeople(first: $pageSize, after: $allPeopleAfter) {
+query AllPeopleList($pageSize: Int!, $allPeopleAfter: String!, $allPeopleBefore:String!) {
+    allPeople(first: $pageSize, after: $allPeopleAfter, before: $allPeopleBefore) {
         people {
             name
             birthYear

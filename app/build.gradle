@@ -25,6 +25,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+
+        dataBinding true
+
+        // for view binding:
+        // viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -54,8 +63,6 @@ dependencies {
 
     // Di:
     implementation rootProject.ext.koin.koin
-    implementation rootProject.ext.koin.koin_viewmodel
-    implementation rootProject.ext.koin.koin_scope
 
     // Coroutines:
     implementation rootProject.ext.coroutines.core
@@ -65,7 +72,6 @@ dependencies {
     implementation rootProject.ext.arch_components.lifecycle_viewmodel_ktx
     implementation rootProject.ext.arch_components.lifecycle_runtime_ktx
     implementation rootProject.ext.arch_components.lifecycle_livedata_ktx
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt rootProject.ext.arch_components.lifecycle_common
 
     // Navigation:
@@ -86,7 +92,6 @@ dependencies {
     testImplementation rootProject.ext.testCommon.mockito_kotlin
     testImplementation rootProject.ext.testCommon.mockito_inline
     testImplementation rootProject.ext.testCommon.core_testing
-    testImplementation rootProject.ext.testCommon.koin_test
     testImplementation rootProject.ext.testCommon.test_coroutines
     testImplementation rootProject.ext.testCommon.test_navigation
 }

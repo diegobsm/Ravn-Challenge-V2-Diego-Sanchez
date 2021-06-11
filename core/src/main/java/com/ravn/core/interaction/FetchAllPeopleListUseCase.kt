@@ -1,9 +1,9 @@
 package com.ravn.core.interaction
 
-import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
 import com.ravn.core.model.People
-import com.ravn.core.util.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface FetchAllPeopleListUseCase {
-    suspend operator fun invoke(nextPageCursor: String, isFirstLoad: Boolean): LiveData<Resource<List<People>>>
+    suspend operator fun invoke(isFirstLoad: Boolean): Flow<PagingData<People>>
 }

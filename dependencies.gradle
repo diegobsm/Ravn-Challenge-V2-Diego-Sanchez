@@ -24,9 +24,9 @@ ext {
     kotlin_coroutines_version = "1.3.3"
 
     classpath = [
-            build_gradle  : "com.android.tools.build:gradle:${gradle_version}",
-            gradle_pluggin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}",
-            navigation_component_pluggin : "androidx.navigation:navigation-safe-args-gradle-plugin:${nav_version}"
+            build_gradle                : "com.android.tools.build:gradle:${gradle_version}",
+            gradle_pluggin              : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}",
+            navigation_component_pluggin: "androidx.navigation:navigation-safe-args-gradle-plugin:${nav_version}"
     ]
 
     apollo_version = "2.5.2"
@@ -83,15 +83,17 @@ ext {
     // Architecture Components
     arch_components_version = '2.3.1'
     arch_nav_version = '2.3.5'
+    arch_paging_version = '3.0.0'
 
     arch_components = [
-            lifecycle_common    : "androidx.lifecycle:lifecycle-common-java8:${arch_components_version}",
+            lifecycle_common       : "androidx.lifecycle:lifecycle-common-java8:${arch_components_version}",
             lifecycle_viewmodel_ktx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${arch_components_version}",
             lifecycle_runtime_ktx  : "androidx.lifecycle:lifecycle-runtime-ktx:${arch_components_version}",
             lifecycle_livedata_ktx : "androidx.lifecycle:lifecycle-livedata-ktx:${arch_components_version}",
             navigation_fragment    : "androidx.navigation:navigation-fragment-ktx:${arch_nav_version}",
             navigation_ui          : "androidx.navigation:navigation-ui-ktx:${arch_nav_version}",
-            navigation_test        : "androidx.navigation:navigation-testing:${arch_nav_version}"
+            navigation_test        : "androidx.navigation:navigation-testing:${arch_nav_version}",
+            paging3                 : "androidx.paging:paging-runtime:${arch_paging_version}"
     ]
 
     // Retrofit and OkHttp dependencies:
@@ -107,12 +109,10 @@ ext {
     ]
 
     // Di:
-    koin_version = '2.1.1'
+    koin_version = '3.0.2'
 
     koin = [
-            koin          : "org.koin:koin-android:${koin_version}",
-            koin_viewmodel: "org.koin:koin-androidx-viewmodel:${koin_version}",
-            koin_scope    : "org.koin:koin-androidx-scope:${koin_version}"
+            koin          : "io.insert-koin:koin-android:${koin_version}"
     ]
 
     // Test Common Dependencies:

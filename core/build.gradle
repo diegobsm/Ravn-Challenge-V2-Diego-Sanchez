@@ -43,13 +43,14 @@ dependencies {
     // Lifecycle
     api rootProject.ext.arch_components.lifecycle_livedata_ktx
 
+    // Paging3
+    api rootProject.ext.arch_components.paging3
+
     // Di:
     implementation rootProject.ext.koin.koin
-    implementation rootProject.ext.koin.koin_scope
 
     // Unit Testing:
     testImplementation rootProject.ext.testCommon.junit
     testImplementation rootProject.ext.testCommon.robolectric
-    testImplementation rootProject.ext.testCommon.koin_test
     testImplementation rootProject.ext.testCommon.test_core
 }

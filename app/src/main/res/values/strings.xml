@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ravn-Challenge-V2-Diego-Sanchez</string>
+
+    <!-- People -->
+    <string name="item_people_loading">Loading</string>
+    <string name="item_failed_load_data">Failed to Load Data</string>
 </resources>

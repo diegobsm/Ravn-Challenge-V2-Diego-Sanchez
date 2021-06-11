@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/peopleListFragment">
+
+    <fragment
+        android:id="@+id/peopleListFragment"
+        android:name="com.ravn.challenge.ui.people.list.PeopleListFragment"
+        android:label="PeopleListFragment"
+        tools:layout="@layout/fragment_people_list">
+        <action android:id="@+id/action_peopleListFragment_to_peopleDetailFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/peopleDetailFragment"
+        android:name="com.ravn.challenge.ui.people.detail.PeopleDetailFragment"
+        android:label="PeopleDetailFragment"
+        tools:layout="@layout/fragment_people_detail" />
 
 </navigation>

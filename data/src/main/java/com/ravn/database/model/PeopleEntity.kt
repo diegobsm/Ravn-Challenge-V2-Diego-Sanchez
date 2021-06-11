@@ -17,9 +17,7 @@ data class PeopleEntity(
     var skinColor: String? = null,
     var birthYear: String? = null,
     var vehiclesConnection: List<Vehicle>? = null,
-    var species: Specie? = null,
-    val lastCursor: String = "",
-    val hasNextPage: Boolean? = false
+    var species: Specie? = null
 ) : CoreMapper<People> {
     override fun toCoreModel() = People(
         id,
@@ -30,7 +28,5 @@ data class PeopleEntity(
         birthYear,
         vehiclesConnection,
         species,
-        lastCursor,
-        hasNextPage
     )
 }
