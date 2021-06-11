@@ -8,7 +8,7 @@
 
     <!-- People Detail-->
     <string name="people_detail_general_information_label">General Information</string>
-    <string name="people_detail_vehicle_information_label">General Information</string>
+    <string name="people_detail_vehicle_information_label">Vehicles</string>
     <string name="people_detail_eyes_color_label">Eye Color</string>
     <string name="people_detail_hair_color_label">Hair Color</string>
     <string name="people_detail_skin_color_label">Skin Color</string>

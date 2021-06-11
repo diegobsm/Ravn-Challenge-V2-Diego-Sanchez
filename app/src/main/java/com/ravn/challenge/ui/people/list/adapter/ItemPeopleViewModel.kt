@@ -13,6 +13,11 @@ class ItemPeopleViewModel(val people: People?, private val listener: OnItemClick
         val specieAndHomeWorld = StringBuilder()
         if (people?.species?.name.isNullOrBlank().not()) {
             specieAndHomeWorld.append(people?.species?.name)
+        }
+
+        if (people?.species?.name.isNullOrBlank().not() &&
+            people?.species?.homeWorld?.name.isNullOrBlank().not()
+        ) {
             specieAndHomeWorld.append(AND_WORD)
         }
 
