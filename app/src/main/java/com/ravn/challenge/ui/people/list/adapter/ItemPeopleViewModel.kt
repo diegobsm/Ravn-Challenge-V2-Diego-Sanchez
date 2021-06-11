@@ -9,13 +9,24 @@ class ItemPeopleViewModel(val people: People?, private val listener: OnItemClick
         listener.onPeopleClick(people)
     }
 
-    fun getSpecieAndHomeWorld(): String = "${people?.species?.name} $AND_WORD ${people?.species?.homeWorld?.name}"
+    fun getSpecieAndHomeWorld(): String {
+        val specieAndHomeWorld = StringBuilder()
+        if (people?.species?.name.isNullOrBlank().not()) {
+            specieAndHomeWorld.append(people?.species?.name)
+            specieAndHomeWorld.append(AND_WORD)
+        }
+
+        if (people?.species?.homeWorld?.name.isNullOrBlank().not()) {
+            specieAndHomeWorld.append(people?.species?.homeWorld?.name)
+        }
+        return specieAndHomeWorld.toString()
+    }
 
     interface OnItemClick {
         fun onPeopleClick(people: People?)
     }
 
     companion object {
-        const val AND_WORD = "and"
+        const val AND_WORD = " and "
     }
 }

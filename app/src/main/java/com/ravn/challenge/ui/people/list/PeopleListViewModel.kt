@@ -10,5 +10,4 @@ class PeopleListViewModel(private val fetchAllPeopleListUseCase: FetchAllPeopleL
 
     suspend fun getPeople(): Flow<PagingData<People>> =
         fetchAllPeopleListUseCase.invoke(true)
-
 }

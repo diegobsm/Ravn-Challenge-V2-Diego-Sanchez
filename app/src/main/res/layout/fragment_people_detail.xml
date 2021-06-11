@@ -1,13 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.people.detail.PeopleDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ravn.challenge.ui.people.detail.PeopleDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".ui.people.detail.PeopleDetailFragment">
 
-</FrameLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_people_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/ravn_black_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back">
+
+            <TextView
+                android:id="@+id/tv_title_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:text="@{viewModel.screenName}"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_general_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/people_detail_general_information_label"
+            android:textColor="@color/text_dark_color"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_people_detail" />
+
+        <include
+            android:id="@+id/vw_eyes"
+            layout="@layout/view_people_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:info="@{viewModel.eyeObserver}"
+            app:label="@{@string/people_detail_eyes_color_label}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_general_info" />
+
+        <include
+            android:id="@+id/vw_hair"
+            layout="@layout/view_people_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:info="@{viewModel.hairObserver}"
+            app:label="@{@string/people_detail_hair_color_label}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_eyes" />
+
+        <include
+            android:id="@+id/vw_skin"
+            layout="@layout/view_people_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:info="@{viewModel.skinObserver}"
+            app:label="@{@string/people_detail_skin_color_label}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_hair" />
+
+        <include
+            android:id="@+id/vw_birth"
+            layout="@layout/view_people_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:info="@{viewModel.birthObserver}"
+            app:label="@{@string/people_detail_birth_year_label}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_skin" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_vehicles_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/people_detail_vehicle_information_label"
+            android:textColor="@color/text_dark_color"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_birth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail_label"
+            visibleOrGone="@{!viewModel.hasVehicleObservable}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/people_detail_no_vehicle_label"
+            android:textColor="@color/text_light_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_vehicles_info" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_vehicles_info"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_vehicle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

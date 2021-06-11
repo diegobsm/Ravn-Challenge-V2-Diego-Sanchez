@@ -5,14 +5,15 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.ravn.core.model.People
 
-class PeopleAdapter() : PagingDataAdapter<People, PeopleViewHolder>(POST_COMPARATOR) {
+class PeopleAdapter(val listener: PeopleViewHolder.OnItemPeopleClick) :
+    PagingDataAdapter<People, PeopleViewHolder>(POST_COMPARATOR) {
 
     override fun onBindViewHolder(holder: PeopleViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeopleViewHolder {
-        return PeopleViewHolder.create(parent)
+        return PeopleViewHolder.create(parent, listener)
     }
 
     companion object {

@@ -10,10 +10,10 @@
         android:name="com.ravn.challenge.ui.people.list.PeopleListFragment"
         android:label="PeopleListFragment"
         tools:layout="@layout/fragment_people_list">
-        <action android:id="@+id/action_peopleListFragment_to_peopleDetailFragment" />
+        <action android:id="@+id/action_peopleListFragment_to_peopleDetailFragment"
+            app:destination="@id/peopleDetailFragment"/>
 
     </fragment>
-
 
     <fragment
         android:id="@+id/peopleDetailFragment"

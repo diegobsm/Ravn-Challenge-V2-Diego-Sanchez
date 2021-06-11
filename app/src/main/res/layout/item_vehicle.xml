@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ravn.challenge.ui.people.detail.adapter.ItemVehicleViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/vw_birth"
+            layout="@layout/view_people_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:label="@{viewModel.vehicle.name}" />
+    </FrameLayout>
+</layout>
