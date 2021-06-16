@@ -80,8 +80,9 @@ dependencies {
     testImplementation rootProject.ext.testCommon.mockito_kotlin
     testImplementation rootProject.ext.testCommon.mockito_inline
     testImplementation rootProject.ext.testCommon.core_testing
-    testImplementation rootProject.ext.testCommon.test_coroutines
+    debugApi rootProject.ext.testCommon.test_coroutines
     testImplementation rootProject.ext.testCommon.test_core
     testImplementation rootProject.ext.testCommon.robolectric
     testImplementation rootProject.ext.testCommon.mockwebserver
+    testImplementation rootProject.ext.testCommon.kotlin_test
 }
